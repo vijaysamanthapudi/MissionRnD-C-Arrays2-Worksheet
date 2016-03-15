@@ -17,13 +17,56 @@ NOTES:
 */
 
 #include <iostream>
-
+int str_cmp(char a[], char b[]);
 struct transaction {
 	int amount;
 	char date[11];
 	char description[20];
 };
 
-struct transaction * sortedArraysCommonElements(struct transaction *A, int ALen, struct transaction *B, int BLen) {
-	return NULL;
+struct transaction * sortedArraysCommonElements(struct transaction *A, int ALen, struct transaction *B, int BLen) 
+{
+	if (A == NULL || B == NULL || ALen < 0 || BLen < 0)
+	{
+		return NULL;
+	}
+
+
+	struct transaction **temp =(struct transaction **)malloc(sizeof(struct transaction));
+	int i, j,k=0;
+	*temp == NULL;
+	for (i = 0; i < ALen; i++)
+	{
+		for (j = 0; j < BLen; j++)
+		{
+			if (str_cmp(A[i].date, B[j].date) == 1)
+			{
+				temp[k] = (struct transaction *)malloc(sizeof(struct transaction));
+				temp[k] = &A[i];
+				k++;
+
+
+			}
+		}
+	}
+	if (k == 0)
+		return NULL;
+	else
+	{
+		return *temp;
+	}
+	
+}
+
+int str_cmp(char a[], char b[])
+{
+	int i;
+	for (i = 0; a[i]; i++)
+	{
+		if (a[i] != b[i])
+		{
+			return 0;
+		}
+	}
+	return 1;
 }
