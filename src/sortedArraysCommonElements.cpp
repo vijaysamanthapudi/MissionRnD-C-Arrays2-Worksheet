@@ -34,7 +34,7 @@ struct transaction * sortedArraysCommonElements(struct transaction *A, int ALen,
 
 	struct transaction **temp =(struct transaction **)malloc(sizeof(struct transaction));
 	int i, j,k=0;
-	*temp == NULL;
+	//*temp == NULL;
 	for (i = 0; i < ALen; i++)
 	{
 		for (j = 0; j < BLen; j++)

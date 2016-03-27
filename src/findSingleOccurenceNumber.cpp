@@ -14,7 +14,27 @@ NOTES:
 There are better ways of solving the problem than a brute-force solution which is of O(n^2)
 complexity .
 */
+#define NULL 0
+int findSingleOccurenceNumber(int *A, int len) 
+{
+	if (A == NULL)
+	{
+		return -1;
+	}
+	int a[65536] = { 0 },i; // Using hashing technique
+	for (i = 0; i < len; i++)
+	{
+		a[A[i]]++;
+	}
+	for (i = 0; i < len; i++)
+	{
+		if (a[A[i]] == 1)
+		{
+			return A[i];
+		}
+	}
 
-int findSingleOccurenceNumber(int *A, int len) {
-	return -1;
+
+
+
 }
